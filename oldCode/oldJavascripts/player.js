@@ -54,7 +54,7 @@ Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 var Human = function() {
@@ -73,7 +73,7 @@ Human.prototype = new Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 var Monster = function() {
