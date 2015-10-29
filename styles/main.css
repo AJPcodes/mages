@@ -16,9 +16,6 @@ body {
 /*
   Section styles
  */
-.card {
-  display: none; }
-
 .card__prompt {
   font-size: 1.1em;
   font-weight: bold;

@@ -9,9 +9,14 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "q", "classes", "enemies","player","spells"],
-  function($, Handlebars, q, classes, enemies, player, spells) {
+  ["jquery", "hbs", "q", "templates", "paths", "enemies","player", "spells"],
+  function($, Handlebars, q, templates, paths, enemies, player, spells) {
 
-console.log('wired up');
+	console.log('wired up');
+
+	$("#playerName").html(templates.playerName);
+	$("#species").html(templates.species);
+	$("#path").html(templates.path);
+	$("#element").html(templates.element);
 
 }); //end require
