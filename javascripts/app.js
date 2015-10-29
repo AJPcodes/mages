@@ -9,10 +9,9 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "q", "classes", "enemies","player","spells"],
-  function($, Handlebars, bootstrap, q, classes, enemies, player, spells) {
+  ["jquery", "hbs", "q", "classes", "enemies","player","spells"],
+  function($, Handlebars, q, classes, enemies, player, spells) {
 
-
-
+console.log('wired up');
 
 }); //end require
