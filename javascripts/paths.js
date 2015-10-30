@@ -18,7 +18,7 @@ define(function(require) {
 
 	  this.toString = function() {
 	    return this.name;
-	  }
+	  };
 	};
 
 
@@ -30,7 +30,7 @@ var Mage = function() {
   this.intelligenceBonus = this.intelligenceBonus + 20;
   	  this.toString = function() {
 	    return this.name;
-	  }
+	  };
 };
 Mage.prototype = new PlayerClass();
 

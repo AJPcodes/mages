@@ -45,7 +45,7 @@ define(function(require) {
 
 	Player.prototype.setWeapon = function(newWeapon) {
 	  this.weapon = newWeapon;
-	}
+	};
 
 	Player.prototype.generateClass = function() {
 	  // Get a random index from the allowed classes array
