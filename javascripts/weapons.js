@@ -5,7 +5,7 @@ var Weapon = function() {
 
   this.toString = function() {
     return this.name;
-  }
+  };
 };
 
 var Dagger = function() {
