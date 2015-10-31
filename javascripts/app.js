@@ -99,17 +99,22 @@ requirejs(
   $(document).on('click', '#startGame', function(e){
     e.preventDefault();
 
+  //player 1 is a completed player object
   player1 = player.chooseSpecies(chosenSpecies);
   console.log(player1);
   player1.path = paths.choosePath(chosenPath);
   player1.name = $('#player-name').text();
 
+  //opponent is a completed opponent object
   opponent = player.chooseSpecies('Surprise Me');
   console.log(opponent);
   opponent.path = paths.choosePath('Surprise Me');
 
+  var combinedPlayers = [player1, opponent];
+  console.log(combinedPlayers);
+
   //function to load gameboard
-  $("#gameboard").html(templates.gameBoard(/*an array of two objects: player and comp*/)).show();
+  $("#gameboard").html(templates.gameBoard({players: combinedPlayers})).show();
 
   });
 
