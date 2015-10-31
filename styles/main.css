@@ -89,4 +89,33 @@ div.selected a span.btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0; }
 
+#gameboard p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #FF6600; }
+
+#playerStats, #compStats, #playerCommand, #compCommand {
+  display: inline-block;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+#playerStats {
+  top: 0;
+  left: 0; }
+
+#compStats {
+  top: 0;
+  right: 0; }
+
+#playerCommand {
+  top: 30%;
+  left: 0;
+  width: 200px; }
+
+#compCommand {
+  top: 30%;
+  right: 0;
+  width: 200px; }
+
 /*# sourceMappingURL=main.css.map */
