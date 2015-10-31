@@ -103,7 +103,7 @@ requirejs(
   player1 = player.chooseSpecies(chosenSpecies);
   console.log(player1);
   player1.path = paths.choosePath(chosenPath);
-  player1.name = $('#player-name').text();
+  player1.playerName = $('#player-name').val();
 
   //opponent is a completed opponent object
   opponent = player.chooseSpecies('Surprise Me');
