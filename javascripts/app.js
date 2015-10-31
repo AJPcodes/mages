@@ -9,8 +9,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "q", "templates", "paths", "enemies","player", "spells"],
-  function($, Handlebars, q, templates, paths, enemies, player, spells) {
+  ["jquery", "hbs", "q", "templates", "paths","player", "spells"],
+  function($, Handlebars, q, templates, paths,player, spells) {
 
   	/* Variables that will store info about the player and the opponent */
   var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement;
@@ -101,17 +101,19 @@ requirejs(
 
   //player 1 is a completed player object
   player1 = player.chooseSpecies(chosenSpecies);
-  console.log(player1);
   player1.path = paths.choosePath(chosenPath);
   player1.playerName = $('#player-name').val();
+  player1.spell = spells.chooseSpell(chosenElement);
+  console.log(player1.path, chosenPath);
+  console.log(player1);
 
   //opponent is a completed opponent object
   opponent = player.chooseSpecies('Surprise Me');
-  console.log(opponent);
   opponent.path = paths.choosePath('Surprise Me');
+  opponent.spell = spells.chooseSpell('Surprise Me');
+  console.log(opponent);
 
   var combinedPlayers = [player1, opponent];
-  console.log(combinedPlayers);
 
   //function to load gameboard
   $("#gameboard").html(templates.gameBoard({players: combinedPlayers})).show();

@@ -13,7 +13,7 @@ define(function(require) {
 	var Player = function(name) {
 	  this.species = null;
 	  this.path = null;
-	  this.weapon = null;
+	  this.spell = null;
 	  this.playerName = name || "unknown adventurer";
 	  this.health = Math.floor(Math.random() * 40 + 50);
 	  this.defense = 90;
@@ -31,6 +31,7 @@ define(function(require) {
 	var Human = function() {
 	  this.species = "Human";
 	  this.attack = this.attack + 15;
+	  this.avatar = "../styles/pics/humanAvatar.jpg"
 	};
 	Human.prototype = new Player();
 
@@ -41,6 +42,7 @@ define(function(require) {
 	var Fairy = function() {
 	  this.species = "Fairy";
 	  this.attack = this.attack + 25;
+	  this.avatar = "../styles/pics/fairyAvatar.jpg"
 	};
 	Fairy.prototype = new Player();
 
@@ -51,6 +53,7 @@ define(function(require) {
 	var Elf = function() {
 	  this.species = "Elf";
 	  this.attack = this.attack + 20;
+	  this.avatar = "../styles/pics/elfAvatar.jpg"
 	};
 	Elf.prototype = new Player();
 
@@ -61,6 +64,7 @@ define(function(require) {
 	var Orc = function() {
 	  this.species = "Orc";
 	  this.attack = this.attack + 5;
+	  this.avatar = "../styles/pics/orcAvatar.jpg"
 	};
 	Orc.prototype = new Player();
 
@@ -71,6 +75,7 @@ define(function(require) {
 	var Troll = function() {
 	  this.species = "Troll";
 	  this.attack = this.attack + 5;
+	  this.avatar = "../styles/pics/trollAvatar.jpg"
 	};
 	Troll.prototype = new Player();
 

@@ -46,6 +46,7 @@ var Priest = function() {
   this.name = "Priest";
   this.defenseBonus = this.defenseBonus - 10;
   this.attackBonus = this.attackBonus + 10;
+  console.log("priest");
 };
 Priest.prototype = new Mage();
 
@@ -63,7 +64,7 @@ Sorcerer.prototype = new Mage();
 
     choosePath: function(chosenPath){
       //example constructor
-
+      console.log(chosenPath);
       var possiblePaths = ['Sorcerer', 'Shaman', 'Priest', 'Druid'];
 
       if (chosenPath == 'Surprise Me'){

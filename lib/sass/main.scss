@@ -132,11 +132,16 @@ div.selected a span.btn__text {
 #playerCommand{
   top: 30%;
   left: 0;
-  width: 200px;
+  width: 400px;
 }
 #compCommand{
   top:30%;
   right:0;
-  width: 200px;
+  width: 400px;
 }
+#playerImg, #compImg{
+  width: 400px;
+  height: 400px;
+}
+
 
