@@ -108,6 +108,9 @@ requirejs(
   console.log(opponent);
   opponent.path = paths.choosePath('Surprise Me');
 
+  //function to load gameboard
+  $("#gameboard").html(templates.gameBoard(/*an array of two objects: player and comp*/)).show();
+
   });
 
 }); //end require
