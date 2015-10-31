@@ -9,30 +9,62 @@ define(function(require) {
 	var Spell = function() {
 	  this.name = "";
 	  this.damage = 0;
-
-	  this.damageTypes = ["lightning", "fire", "water", "earth", "mysticism"];
-	  this.type = "";
-
-	  this.toString = function() {
-	    return this.name + " of " + this.type + " for " + this.damage + " damage!";
-	  };
 	};
 
 	/*
 	  An elemental sphere that can be cast by a magical class
 	 */
-	var Sphere = function() {
-	  this.name = "sphere";
+	var Water = function() {
+	  this.name = "Water";
 	  this.damage = Math.floor(Math.random() * 10 + 10);
-
-	  var random = Math.round(Math.random() * (this.damageTypes.length - 1));
-	  this.type = this.damageTypes[random];
 	};
-	Sphere.prototype = new Spell();
+	Water.prototype = new Spell();
 
+	var Wind = function() {
+	  this.name = "Wind";
+	  this.damage = Math.floor(Math.random() * 10 + 10);
+	};
+	Wind.prototype = new Spell();
+
+	var Fire = function() {
+	  this.name = "Fire";
+	  this.damage = Math.floor(Math.random() * 10 + 10);
+	};
+	Fire.prototype = new Spell();
+
+	var Earth = function() {
+	  this.name = "Earth";
+	  this.damage = Math.floor(Math.random() * 10 + 10);
+	};
+	Earth.prototype = new Spell();
+
+	var Arcana = function() {
+	  this.name = "Arcana";
+	  this.damage = Math.floor(Math.random() * 10 + 10);
+	};
+	Arcana.prototype = new Spell();
 
   return {
 
+    chooseSpell: function(chosenSpell){
+      var possibleSpells = ["Water", "Wind", "Fire", "Earth", "Arcana"];
+
+      if (chosenSpell == 'Surprise Me'){
+        chosenSpell = possibleSpells[Math.floor(Math.random()*5)];
+      }
+  		if (chosenSpell == 'Water') {
+  			return new Water();
+  		} else if (chosenSpell == 'Wind') {
+  			return new Wind();
+  		} else if (chosenSpell == 'Fire') {
+  			return new Fire();
+  		} else if (chosenSpell == 'Earth') {
+  			return new Earth();
+  		} else if (chosenSpell == 'Arcana') {
+  			return new Arcana();
+  		}
+
+  	}
 
 	};//end return
 

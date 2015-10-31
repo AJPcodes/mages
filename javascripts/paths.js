@@ -3,7 +3,6 @@ define(function(require) {
       _ = require("lodash"),
   		q = require("q");
 
-
 /* This module should set up the classes and return an accessible function to generate a class based on the user input */
 
 /*
@@ -12,60 +11,49 @@ define(function(require) {
 	var PlayerClass = function() {
 	  this.name = "Beggar";
 	  this.healthBonus = 0;
-	  this.strengthBonus = 0;
-	  this.intelligenceBonus = 0;
+	  this.defenseBonus = 0;
+	  this.attackBonus = 0;
 	  this.magical = false;
-
-	  this.toString = function() {
-	    return this.name;
-	  };
 	};
-
 
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
   this.healthBonus = this.healthBonus - 10;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
-  	  this.toString = function() {
-	    return this.name;
-	  };
+  this.defenseBonus = this.defenseBonus - 20;
+  this.attackBonus = this.attackBonus + 20;
 };
 Mage.prototype = new PlayerClass();
-
 
 var Shaman = function() {
   this.name = "Shaman";
   this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
+  this.defenseBonus = this.defenseBonus - 10;
+  this.attackBonus = this.attackBonus + 20;
 };
 Shaman.prototype = new Mage();
-
 
 var Druid = function() {
   this.name = "Druid";
   this.healthBonus = this.healthBonus - 15;
-  this.strengthBonus = this.strengthBonus - 25;
-  this.intelligenceBonus = this.intelligenceBonus + 40;
+  this.defenseBonus = this.defenseBonus - 25;
+  this.attackBonus = this.attackBonus + 40;
 };
 Druid.prototype = new Mage();
 
 
-var Preist = function() {
-  this.name = "Preist";
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
+var Priest = function() {
+  this.name = "Priest";
+  this.defenseBonus = this.defenseBonus - 10;
+  this.attackBonus = this.attackBonus + 10;
 };
-Preist.prototype = new Mage();
-
+Priest.prototype = new Mage();
 
 var Sorcerer = function() {
   this.name = "Sorcerer";
   this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 30;
+  this.defenseBonus = this.defenseBonus - 20;
+  this.attackBonus = this.attackBonus + 30;
 };
 Sorcerer.prototype = new Mage();
 
@@ -73,10 +61,10 @@ Sorcerer.prototype = new Mage();
 
   return {
 
-  	choosePath: function(chosenPath){
-  		//example constructor
+    choosePath: function(chosenPath){
+      //example constructor
 
-      var possiblePaths = ['Sorcerer', 'Shaman', 'Preist', 'Druid'];
+      var possiblePaths = ['Sorcerer', 'Shaman', 'Priest', 'Druid'];
 
       if (chosenPath == 'Surprise Me'){
         chosenPath = possiblePaths[Math.floor(Math.random()*4)];
@@ -85,8 +73,8 @@ Sorcerer.prototype = new Mage();
   			return new Sorcerer();
   		} else if (chosenPath == 'Shaman') {
   			return new Shaman();
-  		} else if (chosenPath == 'Preist') {
-  			return new Preist();
+  		} else if (chosenPath == 'Priest') {
+  			return new Priest();
   		} else if (chosenPath == 'Druid') {
   			return new Druid();
   		}
