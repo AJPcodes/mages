@@ -1,9 +1,4 @@
-define(function(require) {
-  var $ = require("jquery"),
-      _ = require("lodash"),
-  		q = require("q");
-
-	/*
+/*
 	  Base spell function that defines name, damage, damage type
 	 */
 	var Spell = function() {
@@ -44,9 +39,7 @@ define(function(require) {
 	};
 	Arcana.prototype = new Spell();
 
-  return {
-
-    chooseSpell: function(chosenSpell){
+var chooseSpell = function(chosenSpell){
       var possibleSpells = ["Water", "Wind", "Fire", "Earth", "Arcana"];
 
       if (chosenSpell == 'Surprise Me'){
@@ -65,7 +58,3 @@ define(function(require) {
   		}
 
   	}
-
-	};//end return
-
-}); //end define

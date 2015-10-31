@@ -1,8 +1,3 @@
-define(function(require) {
-  var $ = require("jquery"),
-      _ = require("lodash"),
-  		q = require("q");
-
 /* This module should include the code to create players from the various species
 	Note: the original code also has a 'monster' constructor. Which is a basic player with a few modifications.
 */
@@ -82,9 +77,7 @@ define(function(require) {
 
 /*return a function that can be accessed from app.js */
 
-  return {
-
-  	chooseSpecies: function(chosenSpecies) {
+var chooseSpecies = function(chosenSpecies) {
 
   		var possibleSpecies = ['Human', 'Fairy', 'Elf', 'Orc', 'Troll'];
 
@@ -104,6 +97,3 @@ define(function(require) {
   			return new Troll();
   		}
   	}
-	};//end return
-
-}); //end define

@@ -1,17 +1,3 @@
-requirejs.config({
-  baseUrl: './javascripts',
-  paths: {
-    'jquery': '../lib/bower_components/jquery/dist/jquery.min',
-    'lodash': '../lib/bower_components/lodash/lodash.min',
-    'hbs': '../lib/bower_components/require-handlebars-plugin/hbs',
-    'q': '../lib/bower_components/q/q'
-  }
-});
-
-requirejs(
-  ["jquery", "hbs", "q", "templates", "paths","player", "spells"],
-  function($, Handlebars, q, templates, paths,player, spells) {
-
     /* Variables that will store info about the player and the opponent */
   var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement, attackCounter=0;
 
@@ -85,10 +71,20 @@ requirejs(
   }
 
   /* load the player creation options from templates */
-  $("#playerName").html(templates.playerName);
-  $("#species").html(templates.species);
-  $("#path").html(templates.path);
-  $("#element").html(templates.element);
+
+/*
+  var templates = {};
+  templates.playerName = Handlebars.compile("../templates/playerName.hbs");
+  templates.species = Handlebars.compile("../templates/species.hbs");
+  templates.path = Handlebars.compile("../templates/path.hbs");
+  templates.element = Handlebars.compile("../templates/element.hbs");
+  templates.gameBoard = Handlebars.compile("../templates/gameBoard.hbs");
+*/
+
+  // $("#playerName").html(templates.playerName);
+  // $("#species").html(templates.species);
+  // $("#path").html(templates.path);
+  // $("#element").html(templates.element);
 
   /*
     Show the initial view that accepts player name
@@ -168,23 +164,25 @@ requirejs(
     e.preventDefault();
 
   //player 1 is a completed player object
-  player1 = player.chooseSpecies(chosenSpecies);
-  player1.path = paths.choosePath(chosenPath);
+  player1 = chooseSpecies(chosenSpecies);
+  player1.path = choosePath(chosenPath);
   player1.playerName = $('#player-name').val();
-  player1.spell = spells.chooseSpell(chosenElement);
+  player1.spell = chooseSpell(chosenElement);
   console.log(player1.path, chosenPath);
   console.log(player1);
 
   //opponent is a completed opponent object
-  opponent = player.chooseSpecies('Surprise Me');
-  opponent.path = paths.choosePath('Surprise Me');
-  opponent.spell = spells.chooseSpell('Surprise Me');
+  opponent = chooseSpecies('Surprise Me');
+  opponent.path = choosePath('Surprise Me');
+  opponent.spell = chooseSpell('Surprise Me');
   console.log(opponent);
 
   var combinedPlayers = [player1, opponent];
 
   //function to load gameboard
-  $("#gameboard").html(templates.gameBoard({players: combinedPlayers})).show();
+  var source = $('#gameBoardTemplate').html();
+  var gameBoard = Handlebars.compile(source);
+  $("#gameboard").html(gameBoard({players: combinedPlayers})).show();
 
   });
 
@@ -196,6 +194,3 @@ requirejs(
     }
       attackCounter += 1;
   });
-
-
-}); //end require

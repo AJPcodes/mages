@@ -1,8 +1,3 @@
-define(function(require) {
-  var $ = require("jquery"),
-      _ = require("lodash"),
-  		q = require("q");
-
 /* This module should set up the classes and return an accessible function to generate a class based on the user input */
 
 /*
@@ -60,9 +55,7 @@ Sorcerer.prototype = new Mage();
 
 /*  This is where we return the constructor function that reads the code above and makes the users class*/
 
-  return {
-
-    choosePath: function(chosenPath){
+var choosePath = function(chosenPath){
       //example constructor
       console.log(chosenPath);
       var possiblePaths = ['Sorcerer', 'Shaman', 'Priest', 'Druid'];
@@ -81,7 +74,3 @@ Sorcerer.prototype = new Mage();
   		}
 
   	}
-
-	};//end return
-
-}); //end define
