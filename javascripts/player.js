@@ -45,7 +45,7 @@ define(function(require) {
 
 	Player.prototype.setWeapon = function(newWeapon) {
 	  this.weapon = newWeapon;
-	}
+	};
 
 	Player.prototype.generateClass = function() {
 	  // Get a random index from the allowed classes array
@@ -170,6 +170,12 @@ define(function(require) {
   return {
 
   	chooseSpecies: function(chosenSpecies) {
+
+  		var possibleSpecies = ['Human', 'Fairy', 'Elf', 'Orc', 'Troll'];
+
+      if (chosenSpecies == 'Surprise Me') {
+        chosenSpecies = possibleSpecies[Math.floor(Math.random()*5)];
+      }
 
   		if (chosenSpecies == 'Human') {
   			return new Human();

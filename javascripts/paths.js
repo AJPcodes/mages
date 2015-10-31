@@ -18,7 +18,7 @@ define(function(require) {
 
 	  this.toString = function() {
 	    return this.name;
-	  }
+	  };
 	};
 
 
@@ -30,7 +30,7 @@ var Mage = function() {
   this.intelligenceBonus = this.intelligenceBonus + 20;
   	  this.toString = function() {
 	    return this.name;
-	  }
+	  };
 };
 Mage.prototype = new PlayerClass();
 
@@ -75,6 +75,12 @@ Sorcerer.prototype = new Mage();
 
   	choosePath: function(chosenPath){
   		//example constructor
+
+      var possiblePaths = ['Sorcerer', 'Shaman', 'Preist', 'Druid'];
+
+      if (chosenPath == 'Surprise Me'){
+        chosenPath = possiblePaths[Math.floor(Math.random()*4)];
+      }
   		if (chosenPath == 'Sorcerer') {
   			return new Sorcerer();
   		} else if (chosenPath == 'Shaman') {

@@ -13,15 +13,8 @@ requirejs(
   function($, Handlebars, q, templates, paths, enemies, player, spells) {
 
   	/* Variables that will store info about the player and the opponent */
-  var player1, opponent;
+  var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement;
 
-  player1 = player.chooseSpecies('Human');
-  console.log(player1);
-  player1.path = paths.choosePath('Sorcerer');
-
-  opponent = player.chooseSpecies('Orc');
-  console.log(opponent);
-  opponent.path = paths.choosePath('Druid');
 
   /* load the player creation options from templates */
 	$("#playerName").html(templates.playerName);
@@ -64,6 +57,57 @@ requirejs(
     var previousCard = $(this).attr("previous");
     $(".card").hide();
     $("." + previousCard).show();
+  });
+
+
+  /*Event handlers that will assign the selected variables to the player*/
+
+  $(document).on('click', '.card__button', function(e){
+    e.preventDefault();
+    var clickedDiv = $(this);
+    var clickedDivType = clickedDiv.attr('cardType');
+    var clickedDivText = clickedDiv.children('.btn').children().text().replace(">", "");
+    // console.log('clicked Div', clickedDiv);
+    // console.log('button type', clickedDivType);
+    // console.log('button text', clickedDivText);
+
+    if (clickedDivType !== undefined) {
+
+      //unselect other like divs
+      clickedDiv.siblings().each(function(index, sibling){
+
+        if ($(sibling).attr('cardType') == clickedDivType) {
+          $(sibling).removeClass('selected');
+        }
+      });
+
+      //add 'selected' class to the clicked div
+      clickedDiv.addClass('selected');
+
+      //record the selection
+      if (clickedDivType === 'species') {
+        chosenSpecies = clickedDivText;
+      } else if (clickedDivType === 'path') {
+        chosenPath = clickedDivText;
+      } else if (clickedDivType === 'element') {
+        chosenElement = clickedDivText;
+      }
+    }
+  });//end button handlers
+
+
+  $(document).on('click', '#startGame', function(e){
+    e.preventDefault();
+
+  player1 = player.chooseSpecies(chosenSpecies);
+  console.log(player1);
+  player1.path = paths.choosePath(chosenPath);
+  player1.name = $('#player-name').text();
+
+  opponent = player.chooseSpecies('Surprise Me');
+  console.log(opponent);
+  opponent.path = paths.choosePath('Surprise Me');
+
   });
 
 }); //end require
