@@ -12,18 +12,86 @@ requirejs(
   ["jquery", "hbs", "q", "templates", "paths","player", "spells"],
   function($, Handlebars, q, templates, paths,player, spells) {
 
-  	/* Variables that will store info about the player and the opponent */
-  var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement;
+    /* Variables that will store info about the player and the opponent */
+  var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement, attackCounter=0;
 
+    var castSpell = function(spellName) {
+
+      $('body').append('<div id="effectOverlay"><img id="effectImg"></div>');
+      /* change Image in effect overlay overlay div*/
+      $('#effectOverlay').css({
+        "position": "fixed",
+        "display": "none",
+        "top": '20%',
+        "left": "20%",
+        'z-index': '10',
+        'backgroundColor': 'rbba(0,0,0,0)',
+        'max-height': '60%',
+        'max-width': '60%'
+       });
+
+      $('#effectImg').css({
+        'max-height': '400px',
+        'max-width': '400px'
+       });
+
+      switch(spellName) {
+            case "Fire":
+                $('#effectImg').attr('src', '../styles/pics/flame.png');
+                break;
+            case "Earth":
+                $('#effectImg').attr('src', '../styles/pics/rock.png');
+                break;
+            case "Wind":
+                 $('#effectImg').attr('src', '../styles/pics/lightning.png');
+                break;
+            case "Arcana":
+                 $('#effectImg').attr('src', '../styles/pics/arcana.png');
+                break;
+            case "Water":
+                 $('#effectImg').attr('src', '../styles/pics/water.png');
+                break;
+            default:
+      }
+
+
+      $("#effectOverlay").fadeIn("easeInBounce");
+      $("#effectOverlay").fadeOut();
+  };
+
+
+  function playerAttack () {
+    var playerAttackDamage = player1.spell.damage + (player1.attack + player1.path.attackBonus) - (opponent.defense + opponent.path.defenseBonus);
+    castSpell(player1.spell.name);
+    opponent.health -= playerAttackDamage;
+    console.log("opponent.health", opponent.health);
+    $('#opponentHealth').text("Health: " + opponent.health);
+    if (opponent.health <= 0) {
+      alert(player1.playerName + " Wins!");
+      $('#attackButton').hide();
+    }
+  }
+
+  function opponentAttack () {
+  var opponentAttackDamage = opponent.spell.damage + (opponent.attack + opponent.path.attackBonus) - (player1.defense + player1.path.defenseBonus);
+    castSpell(opponent.spell.name);
+    player1.health -= opponentAttackDamage;
+    console.log("player1.health", player1.health);
+    $('#playerHealth').text("Health: " + player1.health);
+    if (player1.health <= 0) {
+      alert(player1.playerName + " died of broken axel!");
+      $('#attackButton').hide();
+    }
+  }
 
   /* load the player creation options from templates */
-	$("#playerName").html(templates.playerName);
-	$("#species").html(templates.species);
-	$("#path").html(templates.path);
-	$("#element").html(templates.element);
+  $("#playerName").html(templates.playerName);
+  $("#species").html(templates.species);
+  $("#path").html(templates.path);
+  $("#element").html(templates.element);
 
-	/*
-	  Show the initial view that accepts player name
+  /*
+    Show the initial view that accepts player name
    */
   $("#player-setup").show();
 
@@ -119,5 +187,15 @@ requirejs(
   $("#gameboard").html(templates.gameBoard({players: combinedPlayers})).show();
 
   });
+
+  $(document).on('click', '#attackButton', function() {
+    if(attackCounter % 2 === 0) {
+      playerAttack();
+    } else {
+      opponentAttack();
+    }
+      attackCounter += 1;
+  });
+
 
 }); //end require
