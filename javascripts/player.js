@@ -8,11 +8,11 @@
 	var Player = function(name) {
 	  this.species = null;
 	  this.path = null;
-	  this.spell = null;
+	  this.element = null;
 	  this.playerName = name || "unknown adventurer";
-	  this.health = Math.floor(Math.random() * 40 + 5000);
-	  this.defense = 90;
-	  this.attack = 90;
+	  this.health = Math.floor(Math.random() * 40 + 500);
+	  this.defense = 10;
+	  this.attack = 10;
 	};
 
 	Player.prototype.setSpell = function(setSpell) {
@@ -96,4 +96,4 @@ var chooseSpecies = function(chosenSpecies) {
   		} else if (chosenSpecies == 'Troll') {
   			return new Troll();
   		}
-  	}
+  	};

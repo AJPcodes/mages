@@ -57,7 +57,6 @@ Sorcerer.prototype = new Mage();
 
 var choosePath = function(chosenPath){
       //example constructor
-      console.log(chosenPath);
       var possiblePaths = ['Sorcerer', 'Shaman', 'Priest', 'Druid'];
 
       if (chosenPath == 'Surprise Me'){
@@ -73,4 +72,4 @@ var choosePath = function(chosenPath){
   			return new Druid();
   		}
 
-  	}
+  	};

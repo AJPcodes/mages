@@ -102,24 +102,33 @@ div.selected a span.btn__text {
 
 #playerStats {
   top: 0;
-  left: 0; }
+  left: 0;
+  width: 40%; }
 
 #compStats {
   top: 0;
-  right: 0; }
+  right: 0;
+  width: 40%; }
 
 #playerCommand {
-  top: 30%;
+  top: 35%;
   left: 0;
-  width: 400px; }
+  width: 50%; }
 
 #compCommand {
-  top: 30%;
+  top: 35%;
   right: 0;
-  width: 400px; }
+  width: 50%; }
 
 #playerImg, #compImg {
   width: 400px;
   height: 400px; }
+
+img.die {
+  height: 25px;
+  width: 25px; }
+
+img.die.selected {
+  border: 3px solid white; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,74 +1,7 @@
     /* Variables that will store info about the player and the opponent */
-  var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement, attackCounter=0;
-
-    var castSpell = function(spellName) {
-
-      $('body').append('<div id="effectOverlay"><img id="effectImg"></div>');
-      /* change Image in effect overlay overlay div*/
-      $('#effectOverlay').css({
-        "position": "fixed",
-        "display": "none",
-        "top": '20%',
-        "left": "20%",
-        'z-index': '10',
-        'backgroundColor': 'rbba(0,0,0,0)',
-        'max-height': '60%',
-        'max-width': '60%'
-       });
-
-      $('#effectImg').css({
-        'max-height': '400px',
-        'max-width': '400px'
-       });
-
-      switch(spellName) {
-            case "Fire":
-                $('#effectImg').attr('src', '../styles/pics/flame.png');
-                break;
-            case "Earth":
-                $('#effectImg').attr('src', '../styles/pics/rock.png');
-                break;
-            case "Wind":
-                 $('#effectImg').attr('src', '../styles/pics/lightning.png');
-                break;
-            case "Arcana":
-                 $('#effectImg').attr('src', '../styles/pics/arcana.png');
-                break;
-            case "Water":
-                 $('#effectImg').attr('src', '../styles/pics/water.png');
-                break;
-            default:
-      }
+  var player1, opponent, playerName, chosenSpecies, chosenPath, chosenElement, playerRoll, compRoll, attackCounter=0, playerRollCounter = 0, compRollCounter = 0;
 
 
-      $("#effectOverlay").fadeIn("easeInBounce");
-      $("#effectOverlay").fadeOut();
-  };
-
-
-  function playerAttack () {
-    var playerAttackDamage = player1.spell.damage + (player1.attack + player1.path.attackBonus) - (opponent.defense + opponent.path.defenseBonus);
-    castSpell(player1.spell.name);
-    opponent.health -= playerAttackDamage;
-    console.log("opponent.health", opponent.health);
-    $('#opponentHealth').text("Health: " + opponent.health);
-    if (opponent.health <= 0) {
-      alert(player1.playerName + " Wins!");
-      $('#attackButton').hide();
-    }
-  }
-
-  function opponentAttack () {
-  var opponentAttackDamage = opponent.spell.damage + (opponent.attack + opponent.path.attackBonus) - (player1.defense + player1.path.defenseBonus);
-    castSpell(opponent.spell.name);
-    player1.health -= opponentAttackDamage;
-    console.log("player1.health", player1.health);
-    $('#playerHealth').text("Health: " + player1.health);
-    if (player1.health <= 0) {
-      alert(player1.playerName + " died of broken axel!");
-      $('#attackButton').hide();
-    }
-  }
 
   /* load the player creation options from templates */
 
@@ -186,11 +119,44 @@
 
   });
 
-  $(document).on('click', '#attackButton', function() {
-    if(attackCounter % 2 === 0) {
-      playerAttack();
-    } else {
-      opponentAttack();
-    }
-      attackCounter += 1;
-  });
+  // $(document).on('click', '#attackButton', function() {
+  //   if(attackCounter % 2 === 0) {
+  //     playerAttack();
+  //   } else {
+  //     opponentAttack();
+  //   }
+  //     attackCounter += 1;
+  // });
+
+
+
+
+
+  /*FOR DEVELOPMENT - go straight to game board*/
+
+  $("#player-setup").hide();
+
+    //player 1 is a completed player object
+
+  player1 = chooseSpecies('Surprise Me');
+  player1.path = choosePath('Surprise Me');
+  player1.playerName = 'Player1';
+  player1.element = chooseElement('Surprise Me');
+  // player1.spell = chooseSpell('Surprise Me');
+
+  //opponent is a completed opponent object
+  opponent = chooseSpecies('Surprise Me');
+  opponent.playerName = 'Opponent';
+  opponent.path = choosePath('Surprise Me');
+  opponent.element = chooseElement('Surprise Me');
+  // opponent.spell = chooseSpell('Surprise Me');
+
+  var combinedPlayers = [player1, opponent];
+
+  //function to load gameboard
+  var source = $('#gameBoardTemplate').html();
+  var gameBoard = Handlebars.compile(source);
+  $("#gameboard").html(gameBoard({players: combinedPlayers})).show();
+
+
+  /*End development log in*/

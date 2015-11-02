@@ -252,23 +252,43 @@
       <p>Species: {{players.0.species}}</p>
       <p>Path: {{players.0.path.name}}</p>
       <p id="playerHealth">Health: {{players.0.health}}</p>
-      <p>Spell: {{players.0.spell.name}}</p>
+      <p>Element: {{players.0.element.name}} (Strong vs. {{players.0.element.strength}} Weak vs {{players.0.element.weakness}})</p>
+      <button id='playerRoll'>Roll</button>
+      <button id="playerAttackButton" disabled=true>Attack!</button>
+      <div id='playerDice'>
+        <img id='playerDie1' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='playerDie2' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='playerDie3' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='playerDie4' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='playerDie5' class='die selected' src='./styles/pics/skullIcon.png'>
+      </div>
+
     </div>
     <div id="compStats">
       <p>Name: {{players.1.playerName}}</p>
       <p>Species: {{players.1.species}}</p>
       <p>Path: {{players.1.path.name}}</p>
       <p id="opponentHealth">Health: {{players.1.health}}</p>
-      <p>Spell: {{players.1.spell.name}}</p>
+      <p>Element: {{players.1.element.name}} (Strong vs. {{players.1.element.strength}} Weak vs {{players.1.element.weakness}})</p>
+      <button id='compRoll' disabled=true>Roll</button>
+      <button id="compAttackButton" disabled=true>Attack!</button>
+      <div id='compDice'>
+        <img id='compDie1' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='compDie2' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='compDie3' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='compDie4' class='die selected' src='./styles/pics/skullIcon.png'>
+        <img id='compDie5' class='die selected' src='./styles/pics/skullIcon.png'>
+      </div>
+
+
     </div>
 
     <div id="playerCommand">
-      <p>{{players.0.playerName}} attacks with {{players.0.spell.name}}</p>
-      <button id="attackButton">Attack!</button>
+      <p id="playerOutput">{{players.0.playerName}}</p>
       <img id="playerImg" src={{players.0.avatar}}/>
     </div>
     <div id="compCommand">
-      <p>{{players.1.playerName}} attacks with {{players.1.spell.name}}</p>
+      <p id="compOutput">{{players.1.playerName}}</p>
       <img id="compImg" src={{players.1.avatar}}/>
     </div>
 
@@ -276,6 +296,7 @@
   <script src="javascripts/player.js"></script>
   <script src="javascripts/paths.js"></script>
   <script src="javascripts/spells.js"></script>
+  <script src="javascripts/diceLogic.js"></script>
   <script src="javascripts/app.js"></script>
 
 
