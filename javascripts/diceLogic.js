@@ -123,7 +123,7 @@
         "top": '20%',
         "left": "20%",
         'z-index': '10',
-        'backgroundColor': 'rbba(0,0,0,0)',
+        'backgroundColor': 'rbba(0,0,0,0.5)',
         'max-height': '60%',
         'max-width': '60%'
        });
