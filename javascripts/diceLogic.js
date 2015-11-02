@@ -238,6 +238,7 @@ var arcana = new Arcana();
     compRollCounter = 0;
     $('#compRoll').attr('disabled', false);
     $('#playerRoll').attr('disabled', true);
+    $('#compRoll').text('Roll');
 
 
 
@@ -317,6 +318,7 @@ var arcana = new Arcana();
     playerRollCounter = 0;
     $('#playerRoll').attr('disabled', false);
     $('#compRoll').attr('disabled', true);
+    $('#playerRoll').text('Roll');
 
   }
 
