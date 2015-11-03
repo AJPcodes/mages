@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background-image: url('../styles/pics/backgroundImage.jpg');
+  background-size: cover;
 }
 
 .field {
@@ -15,8 +17,6 @@ body {
   text-align: center;
   min-width: 500px;
 }
-
-
 
 /*
   Section styles
@@ -124,22 +124,18 @@ div.selected a span.btn__text {
 #playerStats{
   top:0;
   left:0;
-  width:40%
 }
 #compStats{
   top:0;
   right:0;
-  width: 40%
 }
 #playerCommand{
   top: 35%;
   left: 0;
-  width: 50%;
 }
 #compCommand{
   top:35%;
   right:0;
-  width: 50%;
 }
 #playerImg, #compImg{
   width: 400px;
