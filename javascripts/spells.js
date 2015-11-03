@@ -11,8 +11,11 @@
 	  	// console.log('weakness:', this.weakness);
 
 	  	opponentElement = opponentElement.name;
+	  	//base spell damage (slightly randomized)
 
 	  	var output = Math.floor(Math.random() * 20 + this.damage);
+
+	  	//check element strengths and weaknesses vs opponent element and augment damage if needed
 	  	if (opponentElement === this.strength) {
 	  		console.log('power up');
 	  		output = output * 1.20;
@@ -23,6 +26,7 @@
 	  		console.log('absorbed');
 	  		output = output * -1;
 	  	}
+	  	//ensure output is an integer
 	  	output = parseInt(output);
 	  	console.log(output);
 	  	return output;
