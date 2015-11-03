@@ -1,3 +1,5 @@
+
+/*Takes a die and returns a random die based on the possible rolls*/
   var roll = function(die){
 
     var possibleRolls = ["Water", "Wind", "Fire", "Earth", "Arcana", "Skull"];
@@ -34,6 +36,7 @@
 
   };
 
+/*When a player clicks the roll button roll all die that are selected*/
   $(document).on('click', '#playerRoll', function(){
 
     var die1 = $("#playerDie1");
@@ -44,25 +47,30 @@
 
     var dice = [die1, die2, die3, die4, die5];
 
+    /* First roll is always all 5 dice */
     if (playerRollCounter === 0){
       dice.forEach(function(die){
         roll(die);
       });
     } else {
       dice.forEach(function(die){
+        //all other rolls roll "selected dice"
         if (die.hasClass('selected')) {
         roll(die);
         }
       });
     }
 
+    //keeps track of how many rolls a player has taken
     playerRollCounter += 1;
 
     if (playerRollCounter == 3) {
       $('#playerRoll').attr('disabled', true);
     }
 
+    //enable attack button after first rool
     $('#playerAttackButton').attr('disabled', false);
+    //display remaining rolls
     $('#playerRoll').text(3 - playerRollCounter + " Rolls Left");
 
   });
@@ -113,8 +121,11 @@
 
 /* Battle logic after rolls*/
 
+
+//special effect function. Breifly displays an element in the foreground.
     var castSpell = function(spellName) {
 
+      //create the div to show//
       $('body').append('<div id="effectOverlay"><img id="effectImg"></div>');
       /* change Image in effect overlay overlay div*/
       $('#effectOverlay').css({
@@ -132,7 +143,7 @@
         'max-height': '400px',
         'max-width': '400px'
        });
-
+      //choose the correct image based on the function parameter
       switch(spellName) {
             case "Fire":
                 $('#effectImg').attr('src', '../styles/pics/flame.png');
@@ -152,12 +163,12 @@
             default:
       }
 
-
+      //display and hide the effect
       $("#effectOverlay").fadeIn("easeInBounce");
       $("#effectOverlay").fadeOut(2000);
   };
 
-
+//establish all potential spells as variables.
 var water = new Water();
 var wind = new Wind();
 var fire = new Fire();
@@ -171,9 +182,10 @@ var arcana = new Arcana();
           fireCount = 0,
           earthCount = 0,
           arcanaCount = 0;
-
+        //establish base damage
      var playerAttackDamage = (player1.attack + player1.path.attackBonus) - (opponent.defense + opponent.path.defenseBonus);
 
+     //augment damage based on dice rolled. See spells for each spell's logic
     $('div#playerDice').children().each(function(index, die){
       console.log($(die).attr('value'));
       var dieValue = $(die).attr('value');
@@ -196,7 +208,7 @@ var arcana = new Arcana();
       }
 
     });
-
+    //show special effect for multiple dice of the same type
       if (waterCount > 2) {
         castSpell('Water');
         playerAttackDamage = playerAttackDamage * 1.5;
@@ -223,16 +235,17 @@ var arcana = new Arcana();
 
       }
 
-
+      //subtract damage from the opponent
     opponent.health -= playerAttackDamage;
     $('#opponentHealth').text("Health: " + opponent.health);
+    //display the most recent attack
     $('#playerOutput').html(player1.playerName + " attacked with for " + playerAttackDamage);
     if (opponent.health <= 0) {
       alert(player1.playerName + " Wins!");
       $('#playerAttackButton').hide();
       $('#compAttackButton').hide();
     }
-
+    //reset the board for the next player
     $('#compAttackButton').attr('disabled', false);
     $('#playerAttackButton').attr('disabled', true);
     compRollCounter = 0;
