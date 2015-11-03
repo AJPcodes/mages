@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Gauntlet Mages</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 
 </head>
@@ -11,18 +12,19 @@
 <body>
 
   <article id="game-container">
-
+    
     <div id="playerName">
+    <h1 id="gameName">GAUNTLET</h1>
       <section id="player-setup" class="card card--name">
         <div class="card__prompt">
-          <div>What is your name?</div>
+          <div>What is your name, magical one?</div>
           <div class="field">
             <input type="text" autofocus="true" id="player-name" class="field__textinput">
           </div>
         </div>
 
         <div class="card__button">
-          <a class="card__link btn btn--big btn--orange"
+          <a class="btnStyle card__link btn btn--big btn--orange"
              href="#"
              next="card--species">
             <span class="btn__prompt">></span>
@@ -36,66 +38,64 @@
         <div class="card__prompt">
           <div>Choose your species</div>
           <div>
-            <a class="card__back btn btn--small"
+            <a class="btnStyle card__back btn btn--small"
                href="#"
                previous="card--name">
               <span class="btn__prompt">&lt;</span>
-              <span class="btn__text">Back</span>
+              <span class="btn__text backBut">Back</span>
             </a>
           </div>
         </div>
 
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--blue" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Human</span>
-                </a>
-              </div>
+          <div class="row"> 
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Human</span>
+              </a>
+            </div>
 
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--blue" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Fairy</span>
-                </a>
-              </div>
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Fairy</span>
+              </a>
+            </div>
 
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--blue" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Elf</span>
-                </a>
-              </div>
-
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--blue" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Orc</span>
-                </a>
-              </div>
-
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--blue" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Troll</span>
-                </a>
-              </div>
-
-
-              <div class="card__button" cardType="species">
-                <a class="class__link btn btn--big btn--yellow" href="#">
-                  <span class="btn__prompt">></span>
-                  <span class="btn__text">Surprise Me</span>
-                </a>
-              </div>
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Elf</span>
+              </a>
             </div>
           </div>
-        </div>
+          
+          <div class="row">
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Orc</span>
+              </a>
+            </div>
+
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Troll</span>
+              </a>
+            </div>
+
+            <div class="card__button col-sm-4" cardType="species">
+              <a class="btnStyle class__link btn btn--big btn--yellow" href="#">
+                <span class="btn__prompt">></span>
+                <span class="btn__text">Surprise Me</span>
+              </a>
+            </div>
+          </div>
 
         <div class="card__button">
-          <a class="card__link btn btn--big btn--orange"
+          <a class="btnStyle card__link btn btn--big btn--orange"
              href="#"
              next="card--path">
             <span class="btn__prompt">></span>
@@ -124,35 +124,35 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="card__button" cardType="path">
-                <a class="class__link btn btn--big btn--blue" href="#">
+                <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                   <span class="btn__prompt">></span>
                   <span class="btn__text">Shaman</span>
                 </a>
               </div>
 
               <div class="card__button" cardType="path">
-                <a class="class__link btn btn--big btn--blue" href="#">
+                <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                   <span class="btn__prompt">></span>
                   <span class="btn__text">Sorcerer</span>
                 </a>
               </div>
 
               <div class="card__button" cardType="path">
-                <a class="class__link btn btn--big btn--blue" href="#">
+                <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                   <span class="btn__prompt">></span>
                   <span class="btn__text">Druid</span>
                 </a>
               </div>
 
               <div class="card__button" cardType="path">
-                <a class="class__link btn btn--big btn--blue" href="#">
+                <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                   <span class="btn__prompt">></span>
                   <span class="btn__text">Priest</span>
                 </a>
               </div>
 
               <div class="card__button" cardType="path">
-                <a class="class__link btn btn--big btn--yellow" href="#">
+                <a class="btnStyle class__link btn btn--big btn--yellow" href="#">
                   <span class="btn__prompt">></span>
                   <span class="btn__text">Surprise Me</span>
                 </a>
@@ -163,7 +163,7 @@
         </div>
 
         <div class="card__button">
-          <a class="card__link btn btn--big btn--orange"
+          <a class="btnStyle card__link btn btn--big btn--orange"
              href="#"
              next="card--element">
             <span class="btn__prompt">></span>
@@ -192,35 +192,35 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="card__button" cardType="element">
-              <a class="class__link btn btn--big btn--blue" href="#">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Water</span>
               </a>
             </div>
 
             <div class="card__button" cardType="element">
-              <a class="class__link btn btn--big btn--blue" href="#">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Wind</span>
               </a>
             </div>
 
             <div class="card__button" cardType="element">
-              <a class="class__link btn btn--big btn--blue" href="#">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Fire</span>
               </a>
             </div>
 
             <div class="card__button" cardType="element">
-              <a class="class__link btn btn--big btn--blue" href="#">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Earth</span>
               </a>
             </div>
 
             <div class="card__button" cardType="element">
-              <a class="class__link btn btn--big btn--blue" href="#">
+              <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Arcana</span>
               </a>
@@ -229,7 +229,7 @@
           </div>
 
           <div class="card__button">
-            <a class="card__link btn btn--big btn--orange"
+            <a class="btnStyle card__link btn btn--big btn--orange"
                href="#"
                next="card--battleground">
               <span class="btn__prompt">></span>
