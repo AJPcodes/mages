@@ -14,5 +14,5 @@ Home of the largest wizard battle in this realm!
 - Try your luck with additional elemental dice, but choose wisely.
 
 ###Dependencies
-- Handlebars is loaded via CDN so there will be no dependencies to install
+- Handlebars and Bootstrap is loaded via CDN so there will be no dependencies to install
 - Styled using SASS with Grunt compiling
