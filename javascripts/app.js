@@ -100,15 +100,12 @@
   player1 = chooseSpecies(chosenSpecies);
   player1.path = choosePath(chosenPath);
   player1.playerName = $('#player-name').val();
-  player1.spell = chooseSpell(chosenElement);
-  console.log(player1.path, chosenPath);
-  console.log(player1);
+  player1.spell = chooseElement(chosenElement);
 
   //opponent is a completed opponent object
   opponent = chooseSpecies('Surprise Me');
   opponent.path = choosePath('Surprise Me');
-  opponent.spell = chooseSpell('Surprise Me');
-  console.log(opponent);
+  opponent.spell = chooseElement('Surprise Me');
 
   var combinedPlayers = [player1, opponent];
 
@@ -134,29 +131,29 @@
 
   /*FOR DEVELOPMENT - go straight to game board*/
 
-  $("#player-setup").hide();
+  // $("#player-setup").hide();
 
-    //player 1 is a completed player object
+  //   //player 1 is a completed player object
 
-  player1 = chooseSpecies('Surprise Me');
-  player1.path = choosePath('Surprise Me');
-  player1.playerName = 'Player1';
-  player1.element = chooseElement('Surprise Me');
-  // player1.spell = chooseSpell('Surprise Me');
+  // player1 = chooseSpecies('Surprise Me');
+  // player1.path = choosePath('Surprise Me');
+  // player1.playerName = 'Player1';
+  // player1.element = chooseElement('Surprise Me');
+  // // player1.spell = chooseSpell('Surprise Me');
 
-  //opponent is a completed opponent object
-  opponent = chooseSpecies('Surprise Me');
-  opponent.playerName = 'Opponent';
-  opponent.path = choosePath('Surprise Me');
-  opponent.element = chooseElement('Surprise Me');
-  // opponent.spell = chooseSpell('Surprise Me');
+  // //opponent is a completed opponent object
+  // opponent = chooseSpecies('Surprise Me');
+  // opponent.playerName = 'Opponent';
+  // opponent.path = choosePath('Surprise Me');
+  // opponent.element = chooseElement('Surprise Me');
+  // // opponent.spell = chooseSpell('Surprise Me');
 
-  var combinedPlayers = [player1, opponent];
+  // var combinedPlayers = [player1, opponent];
 
-  //function to load gameboard
-  var source = $('#gameBoardTemplate').html();
-  var gameBoard = Handlebars.compile(source);
-  $("#gameboard").html(gameBoard({players: combinedPlayers})).show();
+  // //function to load gameboard
+  // var source = $('#gameBoardTemplate').html();
+  // var gameBoard = Handlebars.compile(source);
+  // $("#gameboard").html(gameBoard({players: combinedPlayers})).show();
 
 
   /*End development log in*/
