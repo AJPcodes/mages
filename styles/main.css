@@ -105,6 +105,12 @@ div.selected a span.btn__text {
   background: #fafdff;
   text-decoration: none; }
 
+.backBut {
+  margin-bottom: 100px; }
+
+.forwardBut {
+  margin-top: 100px; }
+
 #gameboard p {
   margin: 0;
   padding: 0;
