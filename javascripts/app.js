@@ -116,7 +116,14 @@
   $("#gameboard").html(gameBoard({players: combinedPlayers})).show();
 
   });
+//show/hide rules
+$(document).on('click','#toggleRules', function(){
+  $('#rules').fadeIn();
+});
 
+$(document).on('click','#rules', function(){
+  $('#rules').fadeOut();
+});
   // $(document).on('click', '#attackButton', function() {
   //   if(attackCounter % 2 === 0) {
   //     playerAttack();

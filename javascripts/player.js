@@ -70,7 +70,7 @@
 	var Troll = function() {
 	  this.species = "Troll";
 	  this.attack = this.attack + 5;
-	  this.avatar = "../styles/pics/trollAvatar.jpg";
+	  this.avatar = "../styles/pics/internetTroll.png";
 	};
 	Troll.prototype = new Player();
 

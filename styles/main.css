@@ -168,4 +168,45 @@ img.die.selected {
   -webkit-animation: dice 1000ms linear infinite;
   -webkit-transform-origin: 50% 50%; }
 
+.exampleDie {
+  max-height: 30px;
+  max-width: 30px;
+  display: inline-block;
+  border: 3px solid white; }
+
+#rules {
+  text-align: center;
+  font-size: 10px;
+  position: fixed;
+  display: none;
+  top: 10%;
+  left: 20%;
+  right: 20%;
+  bottom: 10%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.75);
+  max-height: 80%;
+  max-width: 80%;
+  overflow: scroll;
+  border: 2px solid white; }
+
+#rules h2 {
+  font-size: 30px; }
+
+#rules h3 {
+  font-size: 25px; }
+
+#rules p {
+  font-size: 20px;
+  display: inline-block; }
+
+#toggleRules {
+  position: fixed;
+  bottom: 0;
+  left: 0; }
+
+.flame {
+  width: 100px;
+  height: 100px; }
+
 /*# sourceMappingURL=main.css.map */

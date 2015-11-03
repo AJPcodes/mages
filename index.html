@@ -12,9 +12,9 @@
 <body>
 
   <article id="game-container">
-    
+
     <div id="playerName">
-    <h1 id="gameName">GAUNTLET</h1>
+    <h1 id="gameName"><img class="flame"src= "http://i.imgur.com/5kzvpsa.gif"/>GAUNTLET<img class="flame"src= "http://i.imgur.com/5kzvpsa.gif"/></h1>
       <section id="player-setup" class="card card--name">
         <div class="card__prompt">
           <div>What is your name, magical one?</div>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="container-fluid">
-          <div class="row"> 
+          <div class="row">
             <div class="card__button col-sm-4" cardType="species">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
@@ -70,7 +70,7 @@
               </a>
             </div>
           </div>
-          
+
           <div class="row">
             <div class="card__button col-sm-4" cardType="species">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
@@ -144,7 +144,7 @@
                 </a>
               </div>
             </div>
-            
+
             <div class="row">
               <div class="card__button col-sm-6" cardType="path">
                 <a class="btnStyle class__link btn btn--big btn--blue" href="#">
@@ -182,7 +182,7 @@
             <div>
               <a class="btnStyle card__back btn btn--small"
                  href="#"
-                 previous="card--class">
+                 previous="card--path">
                 <span class="btn__prompt">&lt;</span>
                 <span class="btn__text">Back</span>
               </a>
@@ -243,6 +243,32 @@
     </div>
     <div id="gameboard"></div>
 
+  <div id="rules">
+    <h2>The Rules</h2>
+
+    <p>Players take turns rolling dice to cast spells.</p>
+    <p>You can roll as many dice as you want up to three times.</p>
+    <p>Each die will cast a spell based on the element shown.<p>
+    <p>De-select dice you do not want to re-roll</p>
+
+    <h3>The Dice</h3>
+
+    <p>Fire</p><img class="exampleDie" src="./styles/pics/flameIcon.png">
+    <p>Water</p><img class="exampleDie" src="./styles/pics/waterIcon.png">
+    <p>Wind</p><img class="exampleDie" src="./styles/pics/tornadoIcon.png">
+    <p>Earth</p><img class="exampleDie" src="./styles/pics/rockIcon.png">
+    <p>Arcana</p><img class="exampleDie" src="./styles/pics/arcanaIcon.png">
+    <p>Skull</p><img class="exampleDie" src="./styles/pics/skullIcon.png">
+
+    <h3>BEWARE</h3>
+
+    <p>You <strong>CANNOT</strong> re-roll a skull icon.<p>
+    <p>Your enemy pursues an elemental path and will absorb that element to gain more power</p>
+    <h3>Hints</h3>
+    <p>Pay attention to your opponents weakness to deal maximum damage.</p>
+    <p>Bonus damage is awared for 3 or more matching dice (not skulls)</p>
+  </div>
+    <button class="btnStyle" id="toggleRules">The Rules</button>
   </article>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
