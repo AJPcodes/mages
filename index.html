@@ -180,7 +180,7 @@
           <div class="card__prompt">
             <div>Choose your Element</div>
             <div>
-              <a class="card__back btn btn--small"
+              <a class="btnStyle card__back btn btn--small"
                  href="#"
                  previous="card--class">
                 <span class="btn__prompt">&lt;</span>
@@ -189,54 +189,55 @@
             </div>
           </div>
 
-           <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="card__button" cardType="element">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="card__button col-sm-4" cardType="element">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Water</span>
               </a>
             </div>
 
-            <div class="card__button" cardType="element">
+            <div class="card__button col-sm-4" cardType="element">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Wind</span>
               </a>
             </div>
 
-            <div class="card__button" cardType="element">
+            <div class="card__button col-sm-4" cardType="element">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Fire</span>
               </a>
             </div>
+          </div>
 
-            <div class="card__button" cardType="element">
+          <div class="row">
+            <div class="card__button col-sm-6" cardType="element">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Earth</span>
               </a>
             </div>
 
-            <div class="card__button" cardType="element">
+            <div class="card__button col-sm-6" cardType="element">
               <a class="btnStyle class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Arcana</span>
               </a>
             </div>
-
           </div>
+        </div>
 
-          <div class="card__button">
-            <a class="btnStyle card__link btn btn--big btn--orange"
-               href="#"
-               next="card--battleground">
-              <span class="btn__prompt">></span>
-              <span class="btn__text" id="startGame">Defeat your enemies</span>
-            </a>
-          </div>
+        <div class="card__button">
+          <a class="btnStyle card__link btn btn--big btn--orange"
+             href="#"
+             next="card--battleground">
+            <span class="btn__prompt">></span>
+            <span class="btn__text" id="startGame">Defeat your enemies</span>
+          </a>
+        </div>
     </section>
 
     </div>
@@ -252,10 +253,10 @@
       <p>Name: {{players.0.playerName}}</p>
       <p>Species: {{players.0.species}}</p>
       <p>Path: {{players.0.path.name}}</p>
-      <p id="playerHealth">Health: {{players.0.health}}</p>
+      <p id="playerHealth">Health: <span class="health">{{players.0.health}}</span></p>
       <p>Element: {{players.0.element.name}} (Strong vs. {{players.0.element.strength}} Weak vs {{players.0.element.weakness}})</p>
-      <button id='playerRoll'>Roll</button>
-      <button id="playerAttackButton" disabled=true>Attack!</button>
+      <button id='playerRoll' class="btnStyle">Roll</button>
+      <button id="playerAttackButton" class="btnStyle" disabled=true>Attack!</button>
       <div id='playerDice'>
         <img id='playerDie1' class='die selected' src='./styles/pics/skullIcon.png'>
         <img id='playerDie2' class='die selected' src='./styles/pics/skullIcon.png'>
@@ -269,10 +270,10 @@
       <p>Name: {{players.1.playerName}}</p>
       <p>Species: {{players.1.species}}</p>
       <p>Path: {{players.1.path.name}}</p>
-      <p id="opponentHealth">Health: {{players.1.health}}</p>
+      <p id="opponentHealth">Health: <span class="health">{{players.1.health}}</span></p>
       <p>Element: {{players.1.element.name}} (Strong vs. {{players.1.element.strength}} Weak vs {{players.1.element.weakness}})</p>
-      <button id='compRoll' disabled=true>Roll</button>
-      <button id="compAttackButton" disabled=true>Attack!</button>
+      <button id='compRoll' class="btnStyle" disabled=true>Roll</button>
+      <button id="compAttackButton"  class="btnStyle" disabled=true>Attack!</button>
       <div id='compDice'>
         <img id='compDie1' class='die selected' src='./styles/pics/skullIcon.png'>
         <img id='compDie2' class='die selected' src='./styles/pics/skullIcon.png'>

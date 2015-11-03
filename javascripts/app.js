@@ -100,12 +100,13 @@
   player1 = chooseSpecies(chosenSpecies);
   player1.path = choosePath(chosenPath);
   player1.playerName = $('#player-name').val();
-  player1.spell = chooseElement(chosenElement);
+  player1.element = chooseElement(chosenElement);
 
   //opponent is a completed opponent object
   opponent = chooseSpecies('Surprise Me');
+  opponent.playerName = 'Opponent';
   opponent.path = choosePath('Surprise Me');
-  opponent.spell = chooseElement('Surprise Me');
+  opponent.element = chooseElement('Surprise Me');
 
   var combinedPlayers = [player1, opponent];
 
